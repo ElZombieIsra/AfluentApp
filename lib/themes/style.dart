@@ -13,10 +13,10 @@ TextStyle textStyle = const TextStyle(
   //fontFamily: 'Graphie',
 );
 
-TextStyle textMuted({size = 12.0}) => TextStyle(
+TextStyle textMuted({size = 12.0, weight = FontWeight.w300}) => TextStyle(
   color: mutedColor,
   fontSize: size,
-  fontWeight: FontWeight.w300,
+  fontWeight: weight,
 );
 
 TextStyle bigTitle = TextStyle(

@@ -49,6 +49,8 @@ class ConfirmationScreen extends StatelessWidget {
             MainButton(
               text: "Listo",
               callback: (){
+                globals.notification = true;
+                globals.textNotification = "¡Tu tarjeta está conectada con ${option["title"]}!";
                 Navigator.of(context).pop();
               },
             )

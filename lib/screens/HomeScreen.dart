@@ -3,7 +3,7 @@ import 'package:afluent/components/Drawer.dart';
 import 'package:afluent/themes/style.dart';
 import 'package:afluent/services/index.dart' as globals;
 import 'package:afluent/components/HomePageViews.dart';
-import 'package:afluent/services/NotificationService.dart';
+import 'package:afluent/services/NotificationService.dart' as cn;
 //import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,8 +13,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
   final List cards = globals.cards;
   final Map currentCard = globals.currentCard;
-  bool notification = true;
-  String textNotification = "";
   TabController _tabController;
 
   void initState() { 
@@ -28,20 +26,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       drawer: CustomDrawer(),
-      appBar: AppBar(
-        elevation: 0.0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.monetization_on,
-              color: Colors.white,
-            ),
-            onPressed: (){},
-          )
-        ],
-      ),
-      /*NotificationToast(
-        notification: notification,
+      appBar: cn.notify(
+        notification: globals.notification,
+        text: globals.textNotification,
         appbar: AppBar(
           elevation: 0.0,
           actions: <Widget>[
@@ -54,13 +41,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
             )
           ],
         ),
-        text: textNotification,
         callback: (){
           setState(() {
-           notification = false; 
+            globals.notification = false;
           });
         },
-      ),*/
+      ),
       body: SafeArea(
         child: Container(
           child: Column(
@@ -85,7 +71,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                     ),
                   ),
                   Center(
-                    child: Image.asset(cards[0]["image"],),
+                    child: Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Image.asset(cards[0]["image"],),
+                    ),
                   )
                 ],
               ),

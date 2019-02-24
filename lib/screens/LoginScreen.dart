@@ -23,14 +23,7 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: Icon(
-                            Icons.account_balance,
-                            size: 120.0,
-                            color: Colors.white,
-                          ),
-                        ),
+                        Image.asset("assets/images/home.png", height: 200.0,),
                         Text(
                           'Bienvenido a',
                           textAlign: TextAlign.center,

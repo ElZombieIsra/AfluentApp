@@ -8,6 +8,10 @@ String numberFormat(num){
   return "${f.format(num)}";
 }
 
+String textNotification;
+
+bool notification = false;
+
 TabController tabController;
 setTabController(_tabController){ 
   tabController = _tabController;
@@ -16,11 +20,10 @@ setTabController(_tabController){
 List activeOptions = [
   
 ];
-
 List options = [
   {
     "title": "Uber",
-    "status": true,
+    "status": false,
     "image":"",
   },{
     "title": "Samsung Pay",
@@ -39,13 +42,53 @@ List options = [
     "status": false,
     "image":"",
   }
-];
-
-List cards = [{
+], cards = [{
   "name": "FDNB Visa_1234",
   "balance": 2867.00,
   "image": "assets/images/card.png",
-}];
+}], transactions = [
+  {
+    "transaction": "Pago honorarios",
+    "amount": 5000.00,
+    "date": "20-Feb-2019",
+    "expense": false,
+  },
+  {
+    "transaction": "Comida rápida",
+    "amount": 327.00,
+    "date": "19-Feb-2019",
+    "expense": true,
+  }
+], configurations = [
+  {
+    "banner": true,
+    "title": "Push notifications",
+  },
+  {
+    "banner": false,
+    "config": "Gastos",
+    "isChecked": true,
+  },
+  {
+    "banner": false,
+    "config": "Ingresos",
+    "isChecked": true,
+  },
+  {
+    "banner": true,
+    "title": "Email notifications",
+  },
+  {
+    "banner": false,
+    "config": "Gastos",
+    "isChecked": false,
+  },
+  {
+    "banner": false,
+    "config": "Ingresos",
+    "isChecked": false,
+  },
+];
 
 Map currentCard = cards[0];
 

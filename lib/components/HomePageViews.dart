@@ -3,6 +3,10 @@ import 'package:afluent/themes/style.dart';
 import 'package:afluent/services/index.dart' as globals;
 import 'package:afluent/components/Buttons/MainButton.dart';
 import 'package:afluent/screens/ConfirmationScreen.dart';
+import 'package:afluent/screens/TransactionsScreen.dart';
+import 'package:afluent/screens/ConfigurationScreen.dart';
+import 'package:afluent/components/CustomContainer.dart';
+import 'package:afluent/components/CustomTab.dart';
 
 
 class HomePageViews extends StatelessWidget {
@@ -23,7 +27,7 @@ class HomePageViews extends StatelessWidget {
       controller: tabController,
       children: <Widget>[
         Center(
-          child: Text("Aquí no hay nada :("),
+          child: TransactionsScreen(),
         ),
         Hero(
           tag: "linkCard",
@@ -31,8 +35,9 @@ class HomePageViews extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 _activeOptions.length != 0 
-                  ? _CustomContainer(
+                  ? CustomContainer(
                     text: "Digital Wallets",
+                    button: true,
                     callback: (){
                       Navigator.of(context).push(
                         MaterialPageRoute(
@@ -96,7 +101,7 @@ class HomePageViews extends StatelessWidget {
           )
         ),
         Center(
-          child: Text('Aquí menos'),
+          child: ConfigurationScreen(),
         ),
       ],
     );
@@ -173,14 +178,42 @@ class PageList extends StatelessWidget {
                     color: Colors.black54,
                   ),
                 ),
-                HomePageTabs(
-                  tabController: globals.tabController,
+                Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CustomTab(
+                        text: "Transacciones",
+                        icon: Icons.loop,
+                        callback: (){
+                          globals.tabController.animateTo(0);
+                          Navigator.pop(context);
+                        },
+                      ),
+                      CustomTab(
+                        icon: Icons.account_balance_wallet,
+                        text: "Asociar Tarjeta",
+                        isSelected: true,
+                        callback: (){},
+                      ),
+                      CustomTab(
+                        text: "Configuración",
+                        icon: Icons.settings,
+                        callback: (){
+                          globals.tabController.animateTo(2);
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: ListView(
                     children: <Widget>[
-                      _CustomContainer(
+                      CustomContainer(
                         text: "Servicios",
+                        button: true,
                         callback: (){},
                       ),
                       Container(
@@ -212,35 +245,6 @@ class PageList extends StatelessWidget {
     );
   }
 }
-
-/*
-_activeOptions.length != 0
-                       ? _CustomContainer(
-                         text: "Digital Wallets",
-                       )
-                      : Container(),
-                      _activeOptions.length != 0
-                        ? Container(
-                          color: Colors.black12,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: ClampingScrollPhysics(),
-                              itemCount: _activeOptions.length,
-                              itemBuilder: (BuildContext context, int index){
-                                return  OptionTile(
-                                    option: _activeOptions[index],
-                                    currentCard: currentCard,
-                                    index: index,
-                                    active: true,
-                                  );
-                              },
-                            )
-                          ),
-                        )
-                        : Container(),
-*/
 
 class OptionTile extends StatefulWidget {
   final Map option;
@@ -307,7 +311,7 @@ class _OptionTileState extends State<OptionTile> {
                       setState(() {
                         // globals.options[widget.index]["previuosStatus"] = true; 
                         widget.option["status"] = true; 
-                        globals.activeOptions.insert(widget.index, widget.option);
+                        globals.activeOptions.add(widget.option);
                         globals.options.removeAt(widget.index);
                       });
                       Navigator.of(context).pushReplacement(
@@ -326,42 +330,6 @@ class _OptionTileState extends State<OptionTile> {
           );
         }
       },
-    );
-  }
-}
-
-class _CustomContainer extends StatelessWidget {
-  final String text;
-  final callback;
-  _CustomContainer({
-    this.text,
-    @required this.callback
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 30.0,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.only(left: 30.0),
-              child: Text(
-                "$text".toUpperCase(),
-                style: TextStyle(
-                  color: Colors.black45,
-                  fontSize: 11.0,
-                ),
-              ),
-            )
-          ),
-          IconButton(
-            icon: Icon(Icons.add, size: 20.0,),
-            onPressed: callback,
-          )
-        ],
-      )
     );
   }
 }

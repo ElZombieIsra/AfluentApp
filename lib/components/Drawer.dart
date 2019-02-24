@@ -16,10 +16,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           ListTile(
-            title: Text('Some text'),
+            title: Text('Cerrar Sesión'),
             onTap: (){
               Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, "/SomeUrl");
+              Navigator.pushReplacementNamed(context, "/LoginPage");
             },
           )
         ],

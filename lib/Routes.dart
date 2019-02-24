@@ -8,13 +8,14 @@ class Routes {
 
   var routes = <String, WidgetBuilder>{
     "/HomePage": (BuildContext context) => HomeScreen(),
+    "/LoginPage": (BuildContext context) => LoginScreen(),
   };
 
   Routes() {
     runApp(
       new MaterialApp(
         title: "Affluent",
-        home: new LoginScreen(),
+        home: LoginScreen(),
         theme: appTheme,
         routes: routes,
       )
