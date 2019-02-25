@@ -12,7 +12,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Afluent', style: TextStyle(color: Colors.white),),
+            child: Text('Affluent', style: TextStyle(color: Colors.white),),
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           ListTile(

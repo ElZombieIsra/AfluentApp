@@ -26,6 +26,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.0"
+
+flutter_icons:
+  image_path: "assets/icon/AffluentLogo.png" 
+  android: true
+  ios: true
+  adaptive_icon_background: "assets/icon/icon_background.png"
+  adaptive_icon_foreground: "assets/icon/affluent_foreground.png"
 
 
 # For information on the generic Dart part of this file, see the
@@ -36,6 +44,11 @@ flutter:
   assets:
     - assets/images/card.png
     - assets/images/home.png
+    - assets/images/services/pay.png
+    - assets/images/services/netflix.png
+    - assets/images/services/amazon.png
+    - assets/images/services/paypal.png
+    - assets/images/services/uber.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -72,3 +85,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+  fonts:
+  - family:  CustomIcons
+    fonts:
+      - asset: assets/fonts/CustomIcons.ttf

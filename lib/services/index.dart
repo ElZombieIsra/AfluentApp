@@ -24,23 +24,23 @@ List options = [
   {
     "title": "Uber",
     "status": false,
-    "image":"",
+    "image":"uber.png",
   },{
     "title": "Samsung Pay",
     "status": false,
-    "image":"",
+    "image":"pay.png",
   },{
     "title": "Netflix",
     "status": false,
-    "image":"",
+    "image":"netflix.png",
   },{
     "title": "Amazon",
     "status": false,
-    "image":"",
+    "image":"amazon.png",
   },{
     "title": "Paypal",
     "status": false,
-    "image":"",
+    "image": "paypal.png",
   }
 ], cards = [{
   "name": "FDNB Visa_1234",

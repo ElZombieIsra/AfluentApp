@@ -7,6 +7,7 @@ import 'package:afluent/screens/TransactionsScreen.dart';
 import 'package:afluent/screens/ConfigurationScreen.dart';
 import 'package:afluent/components/CustomContainer.dart';
 import 'package:afluent/components/CustomTab.dart';
+import 'package:afluent/custom_icons_icons.dart';
 
 
 class HomePageViews extends StatelessWidget {
@@ -79,9 +80,9 @@ class HomePageViews extends StatelessWidget {
                           Center(
                             child: IconButton(
                               icon: Icon(
-                                Icons.arrow_drop_down,
+                                CustomIcons.downward,
                                 color: Colors.black45,
-                                size: 40.0,
+                                size: 15.0,
                               ),
                               onPressed: (){
                                 Navigator.of(context).push(
@@ -265,7 +266,13 @@ class _OptionTileState extends State<OptionTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Text("Image"), // TODO: Show option images
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(5.0),
+        child: Image.asset(
+          "assets/images/services/${widget.option["image"]}",
+          height: 40.0,
+        ),
+      ),
       title: Text(
         widget.option["title"],
         style: TextStyle(
@@ -284,7 +291,7 @@ class _OptionTileState extends State<OptionTile> {
             });
           },
         )
-        : Icon(Icons.forward),
+        : Icon(CustomIcons.forward, size: 12.0,),
       onTap: (){
         if(!(widget.active ?? false)){
           globals.Messages(
