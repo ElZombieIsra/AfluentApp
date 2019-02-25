@@ -24,7 +24,7 @@ class ConfirmationScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text('${option["image"]}'), // TODO: Place service image
+            Text('${option["image"]}'),
             Text(
               "Asociación exitosa",
               style: title,
