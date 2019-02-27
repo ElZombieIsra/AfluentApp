@@ -14,7 +14,7 @@ class Routes {
   Routes() {
     runApp(
       new MaterialApp(
-        title: "Affluent",
+        title: "NHPP",
         home: LoginScreen(),
         theme: appTheme,
         routes: routes,

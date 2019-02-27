@@ -4,7 +4,7 @@ import 'package:afluent/themes/style.dart';
 
 class CustomTab extends StatefulWidget {
   final callback;
-  final IconData icon;
+  final icon;
   final String text;
   final bool isSelected;
   CustomTab({
@@ -34,9 +34,14 @@ class _CustomTabState extends State<CustomTab> {
                 Expanded(
                   child: Container(),
                 ),
+                /*
                 Icon(
                   widget.icon,
                   color: mutedColor,
+                ),*/
+                SizedBox(
+                  width: 30.0,
+                  child: Image.asset(widget.icon),
                 ),
                 SizedBox(height: 10.0,),
                 Container(

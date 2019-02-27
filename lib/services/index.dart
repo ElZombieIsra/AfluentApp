@@ -8,6 +8,13 @@ String numberFormat(num){
   return "${f.format(num)}";
 }
 
+void resetState(){
+  for (var i = 0; i < options.length; i++) {
+    options[i]["status"] = false;
+    options[i]["linked"] = false;
+  }
+}
+
 String textNotification;
 
 bool notification = false;
@@ -17,29 +24,31 @@ setTabController(_tabController){
   tabController = _tabController;
 }
 
-List activeOptions = [
-  
-];
 List options = [
   {
-    "title": "Uber",
-    "status": false,
-    "image":"uber.png",
-  },{
     "title": "Samsung Pay",
     "status": false,
+    "linked": false,
     "image":"pay.png",
+  },{
+    "title": "Uber",
+    "status": false,
+    "linked": false,
+    "image":"uber.png",
   },{
     "title": "Netflix",
     "status": false,
+    "linked": false,
     "image":"netflix.png",
   },{
     "title": "Amazon",
     "status": false,
+    "linked": false,
     "image":"amazon.png",
   },{
     "title": "Paypal",
     "status": false,
+    "linked": false,
     "image": "paypal.png",
   }
 ], cards = [{
@@ -90,7 +99,10 @@ List options = [
   },
 ];
 
-Map currentCard = cards[0];
+Map currentCard = cards[0], userData = {
+  "user": "jimena789",
+  "password": "224466"
+};
 
 void setCurrentCard(Map _card){
   currentCard =_card;

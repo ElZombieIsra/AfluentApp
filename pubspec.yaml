@@ -44,6 +44,9 @@ flutter:
   assets:
     - assets/images/card.png
     - assets/images/home.png
+    - assets/images/cartera.png
+    - assets/images/config.png
+    - assets/images/refresh.png
     - assets/images/services/pay.png
     - assets/images/services/netflix.png
     - assets/images/services/amazon.png

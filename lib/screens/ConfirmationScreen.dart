@@ -24,7 +24,13 @@ class ConfirmationScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text('${option["image"]}'),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5.0),
+              child: Image.asset(
+                "assets/images/services/${option["image"]}",
+                height: 40.0,
+              ),
+            ),
             Text(
               "Asociación exitosa",
               style: title,
